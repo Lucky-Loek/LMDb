@@ -18,7 +18,7 @@ class TypesTableSeeder extends Seeder
             'created_at' => Carbon::now()
         ]);
         DB::table('types')->insert([
-            'type' => 'season',
+            'type' => 'series',
             'created_at' => Carbon::now()
         ]);
         DB::table('types')->insert([
