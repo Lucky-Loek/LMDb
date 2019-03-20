@@ -25,9 +25,9 @@ class AddScreeningsTable extends Migration
 
             $table->string('title');
             $table->string('year');
-            $table->string('runtime');
-            $table->string('poster_file_path');
-            $table->string('poster_thumbnail_file_path');
+            $table->string('runtime')->nullable();
+            $table->string('poster_file_path')->nullable();
+            $table->string('poster_thumbnail_file_path')->nullable();
             $table->string('imdb_rating');
             $table->string('imdb_id');
             $table->integer('count');
