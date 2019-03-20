@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Service\ApiService;
 use Illuminate\Console\Command;
 
 class LMDbImportCommmand extends Command
@@ -21,11 +22,6 @@ class LMDbImportCommmand extends Command
     protected $description = 'Imports screenings from the OMDb API';
 
     /**
-     * @var string
-     */
-    private $apiKey;
-
-    /**
      * Create a new command instance.
      *
      * @return void
@@ -33,7 +29,6 @@ class LMDbImportCommmand extends Command
     public function __construct()
     {
         parent::__construct();
-        $this->apiKey = config('api.key');
     }
 
     /**
@@ -41,8 +36,8 @@ class LMDbImportCommmand extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(ApiService $service)
     {
-        // 
+        $this->output->writeln($service->workWell());
     }
 }
