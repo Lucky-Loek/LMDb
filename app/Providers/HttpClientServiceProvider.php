@@ -16,9 +16,7 @@ class HttpClientServiceProvider extends ServiceProvider
     {
         $this->app->singleton(Client::class, function ($app) {
             return new Client(
-                new \GuzzleHttp\Client([
-                    'base_uri' => 'https://www.omdbapi.com/'
-                ])
+                new \GuzzleHttp\Client()
             );
         });
     }
