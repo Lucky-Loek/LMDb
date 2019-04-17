@@ -15,7 +15,7 @@ class Client
         $this->apiKey = config('lmdb.api_key');
     }
 
-    public function getScreeningById(string $imdbId): string
+    public function getScreeningByImdbId(string $imdbId): string
     {
         // #TODO Refactor URI to function that takes array as input, foreaches through it and returns string
         $request = new Request(
