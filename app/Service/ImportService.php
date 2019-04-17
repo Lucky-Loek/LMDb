@@ -34,11 +34,6 @@ class ImportService
         $imdbElements = $this->csvReaderService->readWatchlist();
 
         // Run line for line through api
-        // Check if api response already in DB
-        //   Write api response to DB
-        // Check if movie, series or episode
-        //   If series then retrieve seasons
-        //   Retrieve all episodes for all seasons
         $this->apiService->processImdbElements($imdbElements);
     }
 }
