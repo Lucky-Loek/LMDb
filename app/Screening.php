@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Screening extends Model
 {
@@ -20,22 +21,32 @@ class Screening extends Model
     ];
 
     /**
-     * Returns the Type that this screening belongs to.
+     * Returns the Types that this screening belongs to.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsToMany
      */
     public function types()
     {
-        return $this->belongsTo('App\Type');
+        return $this->belongsToMany('App\Type');
     }
 
     /**
      * Return the Screening that this screening belongs to.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsToMany
      */
     public function screenings()
     {
-        return $this->belongsTo('App\Screening');
+        return $this->belongsToMany('App\Screening');
+    }
+
+    /**
+     * Return the Writer that this screening belongs to.
+     *
+     * @return BelongsToMany
+     */
+    public function writers()
+    {
+        return $this->belongsToMany('App\Writer');
     }
 }
