@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Service\ApiService;
+use App\Service\ImportService;
 use Illuminate\Support\ServiceProvider;
 
-class ApiServiceProvider extends ServiceProvider
+class ImportServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -14,8 +14,11 @@ class ApiServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(ApiService::class, function ($app) {
-            return new ApiService($app->make('App\Client'));
+        $this->app->singleton(ImportService::class, function ($app) {
+            return new ImportService(
+                $app->make('App\CsvReaderService'),
+                $app->make('App\ApiService')
+            );
         });
     }
 }

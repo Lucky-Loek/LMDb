@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Service\ApiService;
+use App\Service\ImportService;
 use Illuminate\Console\Command;
 
 class LMDbImportCommmand extends Command
@@ -34,10 +34,10 @@ class LMDbImportCommmand extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @param ImportService $service
      */
-    public function handle(ApiService $service)
+    public function handle(ImportService $service)
     {
-        $this->output->writeln($service->workWell());
+        $this->output->writeln($service->processWatchlist());
     }
 }

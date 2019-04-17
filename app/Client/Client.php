@@ -12,7 +12,7 @@ class Client
     public function __construct(\GuzzleHttp\Client $client)
     {
         $this->client = $client;
-        $this->apiKey = config('api.key');
+        $this->apiKey = config('lmdb.api_key');
     }
 
     public function getScreeningById(string $imdbId): string
