@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGenreScreeningsTable extends Migration
+class CreateGenreScreeningTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateGenreScreeningsTable extends Migration
      */
     public function up()
     {
-        Schema::create('genre_screenings', function (Blueprint $table) {
+        Schema::create('genre_screening', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
 
@@ -31,6 +31,6 @@ class CreateGenreScreeningsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('genre_screenings');
+        Schema::dropIfExists('genre_screening');
     }
 }

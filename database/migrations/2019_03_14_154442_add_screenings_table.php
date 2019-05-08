@@ -17,7 +17,7 @@ class AddScreeningsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
 
-            $table->unsignedBigInteger('parent_id');
+            $table->unsignedBigInteger('parent_id')->nullable();
             $table->foreign('parent_id')->references('id')->on('screenings')->onDelete('cascade');
 
             $table->unsignedBigInteger('type_id');

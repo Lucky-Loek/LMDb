@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActorScreeningsTable extends Migration
+class CreateDirectorScreeningTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateActorScreeningsTable extends Migration
      */
     public function up()
     {
-        Schema::create('actor_screenings', function (Blueprint $table) {
+        Schema::create('director_screening', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
 
-            $table->unsignedBigInteger('actor_id');
+            $table->unsignedBigInteger('director_id');
             $table->unsignedBigInteger('screening_id');
-            $table->foreign('actor_id')->references('id')->on('actors')->onDelete('cascade');
+            $table->foreign('director_id')->references('id')->on('directors')->onDelete('cascade');
             $table->foreign('screening_id')->references('id')->on('screenings')->onDelete('cascade');
         });
     }
@@ -31,6 +31,6 @@ class CreateActorScreeningsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actor_screenings');
+        Schema::dropIfExists('director_screening');
     }
 }

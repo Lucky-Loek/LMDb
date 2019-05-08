@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWriterScreeningsTable extends Migration
+class CreateWriterScreeningTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateWriterScreeningsTable extends Migration
      */
     public function up()
     {
-        Schema::create('writer_screenings', function (Blueprint $table) {
+        Schema::create('screening_writer', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
 
@@ -31,6 +31,6 @@ class CreateWriterScreeningsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('writer_screenings');
+        Schema::dropIfExists('screening_writer');
     }
 }

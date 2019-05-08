@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Screening extends Model
@@ -21,32 +22,62 @@ class Screening extends Model
     ];
 
     /**
-     * Returns the Types that this screening belongs to.
+     * Returns the Type that this screening belongs to.
      *
-     * @return BelongsToMany
+     * @return BelongsTo
      */
-    public function types()
+    public function type()
     {
-        return $this->belongsToMany('App\Type');
+        return $this->belongsTo('App\Type');
     }
 
     /**
      * Return the Screening that this screening belongs to.
      *
-     * @return BelongsToMany
+     * @return BelongsTo
      */
-    public function screenings()
+    public function screening()
     {
-        return $this->belongsToMany('App\Screening');
+        return $this->belongsTo('App\Screening');
     }
 
     /**
-     * Return the Writer that this screening belongs to.
+     * Return the Writers that this screening belongs to.
      *
      * @return BelongsToMany
      */
     public function writers()
     {
         return $this->belongsToMany('App\Writer');
+    }
+
+    /**
+     * Return the Actors that this screening belongs to.
+     *
+     * @return BelongsToMany
+     */
+    public function actors()
+    {
+        return $this->belongsToMany('App\Actor');
+    }
+
+    /**
+     * Return the Directors that this screening belongs to.
+     *
+     * @return BelongsToMany
+     */
+    public function directors()
+    {
+        return $this->belongsToMany('App\Director');
+    }
+
+    /**
+     * Return the Genres that this screening belongs to.
+     *
+     * @return BelongsToMany
+     */
+    public function genres()
+    {
+        return $this->belongsToMany('App\Genre');
     }
 }
