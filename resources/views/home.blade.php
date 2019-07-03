@@ -15,6 +15,18 @@
     <title>Homepage</title>
 </head>
 <body>
+<section class="hero is-primary is-medium">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Loek Movie Database
+            </h1>
+            <h2 class="subtitle">
+                An eye jerking web app that tells you how much time you could've done better things than watching tv instead.
+            </h2>
+        </div>
+    </div>
+</section>
 <section class="section">
     <div class="container">
         <div class="tile is-ancestor">
@@ -40,5 +52,19 @@
         </div>
     </div>
 </section>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>LMDb</strong> by <a href="https://github.com/Lucky-Loek" target="_blank">Loek van der Linde</a>.
+            The source code is licensed <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>.
+        </p>
+        <p>
+            The website content is licensed
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY NC SA 4.0</a> as
+            everything is downloaded through <a href="https://www.omdbapi.com/">OMDb</a>.
+        </p>
+    </div>
+</footer>
 </body>
 </html>
