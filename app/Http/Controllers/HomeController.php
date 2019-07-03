@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Screening;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
     /**
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $screenings = Screening::limit(18)->get();
+        return view('home', compact('screenings'));
     }
 }
