@@ -109,12 +109,12 @@ class ImportService
         $screeningTitle = strtolower($screeningTitle);
         $screeningTitle = preg_replace('/[^\da-z]/', '_', $screeningTitle);
 
-        $filePath = storage_path('app/public/') . $screeningTitle . '.jpg';
-        $thumbnailFilePath = storage_path('app/public/') . $screeningTitle . '_thumb.jpg';
+        $filePath = $screeningTitle . '.jpg';
+        $thumbnailFilePath = $screeningTitle . '_thumb.jpg';
 
-        $image->save($filePath);
-        $image = $image->widen(180);
-        $image->save($thumbnailFilePath);
+        $image->save(storage_path('app/public/') . $filePath);
+        $image = $image->widen(224); // Bulma grid = 1344px. Divided by 6 (for 6 columns) gives 224px per image.
+        $image->save(storage_path('app/public/') . $thumbnailFilePath);
 
         return [
             'file_path' => $filePath,
