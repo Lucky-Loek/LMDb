@@ -18,38 +18,7 @@ class Screening extends Model
         'poster_thumbnail_file_path',
         'imdb_rating',
         'imdb_id',
-        'count'
     ];
-
-    /**
-     * Returns the Type that this screening belongs to.
-     *
-     * @return BelongsTo
-     */
-    public function type()
-    {
-        return $this->belongsTo('App\Type');
-    }
-
-    /**
-     * Return the Screening that this screening belongs to.
-     *
-     * @return BelongsTo
-     */
-    public function screening()
-    {
-        return $this->belongsTo('App\Screening');
-    }
-
-    /**
-     * Return the Writers that this screening belongs to.
-     *
-     * @return BelongsToMany
-     */
-    public function writers()
-    {
-        return $this->belongsToMany('App\Writer');
-    }
 
     /**
      * Return the Actors that this screening belongs to.
@@ -79,5 +48,47 @@ class Screening extends Model
     public function genres()
     {
         return $this->belongsToMany('App\Genre');
+    }
+
+    /**
+     * Return the Screening that this screening belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function screening()
+    {
+        return $this->belongsTo('App\Screening');
+    }
+
+    /**
+     * Returns the Type that this screening belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function type()
+    {
+        return $this->belongsTo('App\Type');
+    }
+
+    /**
+     * Return the Writers that this screening belongs to.
+     *
+     * @return BelongsToMany
+     */
+    public function writers()
+    {
+        return $this->belongsToMany('App\Writer');
+    }
+
+    /**
+     * Add one to count of screenings and return the new screening.
+     *
+     * @return $this
+     */
+    public function addOneToCount()
+    {
+        $this->count++;
+        $this->save();
+        return $this;
     }
 }

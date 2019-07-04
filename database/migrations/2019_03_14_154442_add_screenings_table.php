@@ -20,7 +20,7 @@ class AddScreeningsTable extends Migration
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->foreign('parent_id')->references('id')->on('screenings')->onDelete('cascade');
 
-            $table->unsignedBigInteger('type_id');
+            $table->unsignedBigInteger('type_id')->nullable();
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
 
             $table->string('title');
@@ -30,7 +30,7 @@ class AddScreeningsTable extends Migration
             $table->string('poster_thumbnail_file_path')->nullable();
             $table->string('imdb_rating');
             $table->string('imdb_id');
-            $table->integer('count');
+            $table->integer('count')->default(1);
         });
     }
 

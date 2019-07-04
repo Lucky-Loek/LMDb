@@ -1,29 +1,20 @@
 <?php
 
-namespace App\Service;
+namespace App\Actions;
 
-class CsvReaderService
+class ExtractWatchlist implements ActionInterface
 {
-    /**
-     * @var string
-     */
-    private $filePath;
-
-    public function __construct()
-    {
-        $this->filePath = config('lmdb.watchlist_filename');
-    }
-
     /**
      * My attempt at functional programming that got a little out of hand.
      * Reads the watchlist and returns an array of arrays with csv column
      * headers as keys in the associative arrays.
      *
+     * @param array $data Key 'filePath' with correct file path
      * @return array
      */
-    public function readWatchList()
+    public function execute(array $data): array
     {
-        $csv = array_map('str_getcsv', file($this->filePath));
+        $csv = array_map('str_getcsv', file($data['filePath']));
 
         // In-place convert every element to UTF-8
         array_walk_recursive($csv, function (&$a) use ($csv) {
