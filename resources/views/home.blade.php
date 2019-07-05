@@ -15,7 +15,8 @@
     <title>Homepage</title>
 </head>
 <body>
-<section class="hero is-primary is-medium">
+
+<section class="section hero is-primary">
     <div class="hero-body">
         <div class="container">
             <h1 class="title">
@@ -27,29 +28,35 @@
         </div>
     </div>
 </section>
+
+<section class="section">
+    <div class="container has-text-centered">
+        <p class="title">You have watched a screen for {{ $runtimeInSeconds }} seconds.</p>
+        <p class="title">That is {{ round($runtimeInSeconds / 60) }} minutes.</p>
+        <p class="title">Which is {{ round($runtimeInSeconds / 60 / 60) }} hours.</p>
+        <p class="title">That equals some {{ round($runtimeInSeconds / 60 / 60 / 24) }} days.</p>
+    </div>
+</section>
+
 <section class="section">
     <div class="container">
-        <div class="tile is-ancestor">
+        @foreach($screenings->chunk(6) as $chunk)
+            <div class="columns">
 
-            @foreach($screenings->chunk(3) as $chunk)
-                <div class="tile is-parent is-2 is-vertical">
+                @foreach($chunk as $screening)
+                    <div class="column is-2">
+                        <article class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by4">
+                                    <img src="{{ 'storage/' . $screening->poster_thumbnail_file_path }}" alt="Placeholder image">
+                                </figure>
+                            </div>
+                        </article>
+                    </div>
+                @endforeach
 
-                    @foreach($chunk as $screening)
-                        <div class="tile is-child">
-                            <article class="tile is-child card">
-                                <div class="card-image">
-                                    <figure class="image is-3by4">
-                                        <img src="{{ 'storage/' . $screening->poster_thumbnail_file_path }}" alt="Placeholder image">
-                                    </figure>
-                                </div>
-                            </article>
-                        </div>
-                    @endforeach
-
-                </div>
-            @endforeach()
-
-        </div>
+            </div>
+        @endforeach()
     </div>
 </section>
 

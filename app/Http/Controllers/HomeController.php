@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\CalculateScreeningTime;
 use App\Screening;
 use Illuminate\Http\Request;
 
@@ -22,9 +23,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(CalculateScreeningTime $calculateScreeningTime)
     {
+        $runtimeInSeconds = $calculateScreeningTime->execute(Screening::select(['runtime'])->get()->toArray());
         $screenings = Screening::limit(18)->get();
-        return view('home', compact('screenings'));
+
+        return view('home', compact('screenings', 'runtimeInSeconds'));
     }
 }
