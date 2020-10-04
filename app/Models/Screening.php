@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use const Grpc\WRITE_BUFFER_HINT;
 
 class Screening extends Model
 {
@@ -27,7 +28,7 @@ class Screening extends Model
      */
     public function actors()
     {
-        return $this->belongsToMany('App\Actor');
+        return $this->belongsToMany(Actor::class);
     }
 
     /**
@@ -37,7 +38,7 @@ class Screening extends Model
      */
     public function directors()
     {
-        return $this->belongsToMany('App\Director');
+        return $this->belongsToMany(Director::class);
     }
 
     /**
@@ -47,7 +48,7 @@ class Screening extends Model
      */
     public function genres()
     {
-        return $this->belongsToMany('App\Genre');
+        return $this->belongsToMany(Genre::class);
     }
 
     /**
@@ -57,7 +58,7 @@ class Screening extends Model
      */
     public function screening()
     {
-        return $this->belongsTo('App\Screening');
+        return $this->belongsTo(Screening::class);
     }
 
     /**
@@ -67,7 +68,7 @@ class Screening extends Model
      */
     public function type()
     {
-        return $this->belongsTo('App\Type');
+        return $this->belongsTo(Type::class);
     }
 
     /**
@@ -77,7 +78,7 @@ class Screening extends Model
      */
     public function writers()
     {
-        return $this->belongsToMany('App\Writer');
+        return $this->belongsToMany(Writer::class);
     }
 
     /**

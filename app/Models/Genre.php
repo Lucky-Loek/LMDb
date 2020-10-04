@@ -17,6 +17,6 @@ class Genre extends Model
      */
     public function screenings()
     {
-        return $this->belongsToMany('App\Screening');
+        return $this->belongsToMany(Screening::class);
     }
 }
