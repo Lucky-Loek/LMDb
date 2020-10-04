@@ -17,6 +17,6 @@ class Type extends Model
      */
     public function screenings()
     {
-        return $this->hasMany('App\Screening');
+        return $this->hasMany(Screening::class);
     }
 }
