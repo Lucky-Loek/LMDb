@@ -22,7 +22,7 @@ class CreatePoster implements ActionInterface
         $thumbnailFilePath = $screeningTitle . '_thumb.jpg';
 
         $image->save(storage_path('app/public/') . $filePath);
-        $image = $image->widen(224); // Bulma grid = 1344px. Divided by 6 (for 6 columns) gives 224px per image.
+        $image = $image->widen(240);
         $image->save(storage_path('app/public/') . $thumbnailFilePath);
 
         return [
