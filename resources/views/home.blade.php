@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<section class="section hero is-primary">
+<section class="hero is-primary is-fullheight">
     <div class="hero-body">
         <div class="container">
             <h1 class="title">
@@ -29,12 +29,14 @@
     </div>
 </section>
 
-<section class="section">
-    <div class="container has-text-centered">
-        <p class="title">You have watched a screen for {{ $runtimeInSeconds }} seconds.</p>
-        <p class="title">That is {{ round($runtimeInSeconds / 60) }} minutes.</p>
-        <p class="title">Which is {{ round($runtimeInSeconds / 60 / 60) }} hours.</p>
-        <p class="title">That equals some {{ round($runtimeInSeconds / 60 / 60 / 24) }} days.</p>
+<section class="hero is-light is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title">You have watched a screen for {{ $runtimeInSeconds }} seconds.</p>
+            <p class="title">That is {{ round($runtimeInSeconds / 60) }} minutes.</p>
+            <p class="title">Which is {{ round($runtimeInSeconds / 60 / 60) }} hours.</p>
+            <p class="title">That equals some {{ round($runtimeInSeconds / 60 / 60 / 24) }} days.</p>
+        </div>
     </div>
 </section>
 
