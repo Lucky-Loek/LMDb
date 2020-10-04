@@ -10,3 +10,12 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
+.idea/
+.vscode/
+
+database.sqlite
+WATCHLIST.csv
+
+.phpstorm.meta.php
+_ide_*
