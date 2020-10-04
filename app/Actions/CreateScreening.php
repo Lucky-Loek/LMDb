@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Screening;
+use App\Models\Screening;
 
 class CreateScreening implements ActionInterface
 {

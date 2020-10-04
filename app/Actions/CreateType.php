@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Type;
+use App\Models\Type;
 
 class CreateType
 {

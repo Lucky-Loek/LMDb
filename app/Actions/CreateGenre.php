@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Genre;
+use App\Models\Genre;
 
 class CreateGenre implements ActionInterface
 {

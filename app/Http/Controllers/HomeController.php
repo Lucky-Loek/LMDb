@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actions\CalculateScreeningTime;
-use App\Screening;
+use App\Models\Screening;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

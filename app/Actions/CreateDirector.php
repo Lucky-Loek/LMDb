@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Director;
+use App\Models\Director;
 
 class CreateDirector implements ActionInterface
 {

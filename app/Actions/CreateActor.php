@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Actor;
+use App\Models\Actor;
 
 class CreateActor implements ActionInterface
 {

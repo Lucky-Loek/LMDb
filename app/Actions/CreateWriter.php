@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Writer;
+use App\Models\Writer;
 
 class CreateWriter implements ActionInterface
 {
